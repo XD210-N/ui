@@ -12,8 +12,6 @@ import {
 } from "react";
 import { useStrings } from "@/lib/strings-context";
 
-const SAAS_URL = process.env.NEXT_PUBLIC_SAAS_URL ?? "http://localhost:8000";
-
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 export interface Project {
@@ -54,7 +52,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   const fetchProjects = useCallback(async () => {
-    const res = await fetch(`${SAAS_URL}/v1/projects`);
+    const res = await fetch(`/v1/projects`);
     const data = await res.json();
     return (data.projects ?? []) as Project[];
   }, []);
@@ -65,7 +63,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
   }, [fetchProjects]);
 
   const openProject = useCallback(async (projectId: string) => {
-    const res = await fetch(`${SAAS_URL}/v1/projects/${projectId}/open`, {
+    const res = await fetch(`/v1/projects/${projectId}/open`, {
       method: "POST",
     });
     const p = (await res.json()) as Project;
@@ -76,7 +74,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
 
   const createProject = useCallback(
     async (name: string) => {
-      const res = await fetch(`${SAAS_URL}/v1/projects`, {
+      const res = await fetch(`/v1/projects`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name }),
@@ -96,7 +94,7 @@ export function ProjectProvider({ children }: { children: ReactNode }) {
 
   const deleteProject = useCallback(
     async (projectId: string) => {
-      const res = await fetch(`${SAAS_URL}/v1/projects/${projectId}`, {
+      const res = await fetch(`/v1/projects/${projectId}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to delete project.");
