@@ -27,10 +27,6 @@ yarn-error.log*
 Thumbs.db
 
 # Editor
-.vscode/
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 .idea/
 
 # TypeScript
