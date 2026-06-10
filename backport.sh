@@ -14,7 +14,7 @@
 set -euo pipefail
 
 UI_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MONOREPO="${UI_DIR}/../assistant-ui"
+MONOREPO="${UI_DIR}/../os-saas/assistant-ui"
 PKG_UI="${MONOREPO}/packages/ui/src"
 APP_UI="${MONOREPO}/apps/omnistack-ui/app"
 
