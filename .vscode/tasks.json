@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ui: start",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && npm run dev",
+      "isBackground": true,
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": {
+        "owner": "omnistack-ui",
+        "pattern": [{ "regexp": "^$", "file": 1, "location": 2, "message": 3 }],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "next dev",
+          "endsPattern": "Local:.*localhost:3001|ready on port 3001"
+        }
+      }
+    }
+  ]
+}
