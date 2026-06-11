@@ -7,7 +7,7 @@ import { getCanvasState, subscribeCanvas } from "./canvasStore";
 import { useSelectedBoard, setSelectedBoard } from "./boardStore";
 import { useStrings } from "@/lib/strings-context";
 
-const SAAS_URL = process.env.NEXT_PUBLIC_SAAS_URL ?? "http://localhost:8000";
+const SAAS_URL = process.env.NEXT_PUBLIC_SAAS_URL ?? "";
 
 function useCanvasState() {
   return useSyncExternalStore(subscribeCanvas, getCanvasState, getCanvasState);
@@ -146,7 +146,7 @@ type Tab = "welcome" | "prd" | "slint" | "screens";
 // ── Screen PNG grid ─────────────────────────────────────────────────────────────
 
 const ScreenGrid: FC<{ pngs: string[]; lapSystemDir: string }> = ({ pngs, lapSystemDir }) => {
-  const saasUrl = process.env.NEXT_PUBLIC_SAAS_URL ?? "http://localhost:8000";
+  const saasUrl = process.env.NEXT_PUBLIC_SAAS_URL ?? "";
   const [expanded, setExpanded] = useState<number | null>(null);
 
   if (pngs.length === 0) {

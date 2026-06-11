@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-Hans" className={`h-dvh ${inter.variable}`}>
+    <html lang="zh-Hans" suppressHydrationWarning className={`h-dvh ${inter.variable}`}>
       <body className="h-dvh antialiased">
         <StringsProvider>{children}</StringsProvider>
       </body>
