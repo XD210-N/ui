@@ -32,7 +32,7 @@ async function streamReply(
   let accumulated = "";
   for (const word of words) {
     accumulated += (accumulated ? " " : "") + word;
-    controller.enqueue(sseEvent({ type: "text", text: word + " " }));
+    controller.enqueue(sseEvent({ type: "text", content: word + " " }));
     await new Promise((r) => setTimeout(r, 18));
   }
 
