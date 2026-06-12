@@ -1,10 +1,12 @@
-import { ProjectProvider } from "@/app/ProjectContext";
-import { RedesignHome } from "./components/RedesignHome";
+"use client";
+
+import { RedesignHome } from "./RedesignHome";
+import { RedesignRuntimeBinding } from "./bindings";
 
 export default function RedesignPage() {
   return (
-    <ProjectProvider>
+    <RedesignRuntimeBinding>
       <RedesignHome />
-    </ProjectProvider>
+    </RedesignRuntimeBinding>
   );
 }
