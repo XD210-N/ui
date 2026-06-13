@@ -27,7 +27,9 @@ async function streamReply(
 ) {
   const msgId = Math.random().toString(36).slice(2);
 
-  // Stream the reply word by word with a small delay
+  // Stream the reply word by word with a small delay.
+  // 前端 MyRuntimeProvider 读取的是 event.content（不是 text），字段名必须一致。
+  // 此处为修正甲方 mock 原本的字段笔误（永久保留，非临时 mock）。
   const words = MOCK_REPLY.split(" ");
   let accumulated = "";
   for (const word of words) {
@@ -36,7 +38,32 @@ async function streamReply(
     await new Promise((r) => setTimeout(r, 18));
   }
 
-  controller.enqueue(sseEvent({ type: "done" }));
+  // ⚠️ 临时 MOCK（PR 前删除本段，到 "临时 MOCK 区块结束" 注释为止）：
+  // 模拟甲方真后端预计返回的"完整预览流"，用于本地验证右侧画布渲染与自动拉出。
+  // 甲方原版 mock 只发空 done、不发 state/screen_pngs，所以本地看不到预览效果。
+  controller.enqueue(
+    sseEvent({
+      type: "state",
+      run_id: "mock-run-001",
+      requirements:
+        "## 需求概要（模拟）\n- 目标设备：480x480 智能面板\n- 首页展示天气与时间\n- 支持深浅色切换",
+      app_plan:
+        "## 实现方案（模拟）\n1. 顶部状态栏\n2. 中部天气卡片\n3. 底部导航三按钮",
+      report:
+        "# 生成报告（模拟 report.md）\n\n本报告由模拟后端生成，用于验证前端渲染。\n\n## 截图\n\n![screen](screens/screen_1.png)\n\n生成完成。",
+    }),
+  );
+
+  controller.enqueue(
+    sseEvent({
+      type: "done",
+      run_id: "mock-run-001",
+      screen_pngs: ["screen_1.png", "screen_2.png"],
+      lap_system_dir: "Agent-Build/app_mock-run-001",
+    }),
+  );
+  // 临时 MOCK 区块结束 —— PR 前删除上面这两段 state / done(screen_pngs)，
+  // 改回甲方原版的：controller.enqueue(sseEvent({ type: "done" }));
 
   // Persist to in-memory history
   const lgThreadId = `${userId}:${threadId}`;

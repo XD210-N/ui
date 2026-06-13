@@ -248,13 +248,13 @@ function CreateProjectDialog({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-      <div className="bg-zinc-900 border border-white/10 rounded-xl p-6 w-96 flex flex-col gap-4 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--background)]/45 backdrop-blur-sm">
+      <div className="flex w-96 flex-col gap-4 rounded-[20px] border border-[var(--border)] bg-[var(--card)] p-6 text-[var(--foreground)] shadow-[0_30px_100px_rgba(15,23,42,0.18)]">
         <h2 className="font-semibold text-lg">
           {canCancel ? s.newProject : s.createFirstProject}
         </h2>
         {!canCancel && (
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-[var(--muted-foreground)]">
             {s.projectDescription}
           </p>
         )}
@@ -262,10 +262,10 @@ function CreateProjectDialog({
           <div className="flex flex-col gap-1.5">
             <input
               autoFocus
-              className={`bg-white/5 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
+              className={`rounded-xl border bg-[var(--muted)] px-3 py-2 text-sm text-[var(--foreground)] focus:outline-none focus:ring-1 ${
                 error
                   ? "border-red-500/70 focus:ring-red-500/50"
-                  : "border-white/10 focus:ring-white/20"
+                  : "border-[var(--border)] focus:ring-[var(--border)]/80"
               }`}
               placeholder={s.projectNamePlaceholder}
               value={name}
@@ -280,7 +280,7 @@ function CreateProjectDialog({
               <button
                 type="button"
                 onClick={onCancel}
-                className="px-4 py-2 text-sm rounded-lg hover:bg-white/8 text-zinc-300"
+                className="rounded-full px-4 py-2 text-sm text-[var(--muted-foreground)] transition-colors hover:bg-[var(--muted)] hover:text-[var(--foreground)]"
               >
                 {s.cancel}
               </button>
@@ -288,7 +288,7 @@ function CreateProjectDialog({
             <button
               type="submit"
               disabled={!name.trim() || busy}
-              className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 rounded-lg px-4 py-2 text-sm font-medium"
+              className="rounded-full bg-[var(--primary)] px-4 py-2 text-sm font-medium text-[var(--primary-foreground)] shadow-[0_10px_22px_rgba(255,90,19,0.24)] transition-colors hover:bg-[#ff6a2a] disabled:opacity-40"
             >
               {busy ? s.creatingButton : s.createButton}
             </button>
@@ -371,31 +371,31 @@ export function ProjectSwitcher() {
         </button>
 
         {open && (
-          <div className="absolute left-0 top-full z-20 mt-1 w-full overflow-hidden rounded-lg border border-white/10 bg-zinc-900 shadow-xl">
-            <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-500 border-b border-white/8">
+          <div className="absolute left-0 top-full z-20 mt-1 w-full overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)] shadow-[0_18px_50px_rgba(15,23,42,0.16)]">
+            <div className="border-b border-[var(--border)] px-3 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">
               {s.projectsLabel}
             </div>
             {others.map((p) => (
               <div key={p.project_id} className="group flex items-center">
                 <button
                   onClick={() => { openProject(p.project_id); setOpen(false); }}
-                  className="flex-1 truncate px-3 py-2 text-left text-sm hover:bg-white/5 transition-colors"
+                  className="flex-1 truncate px-3 py-2 text-left text-sm text-[var(--foreground)] transition-colors hover:bg-[var(--muted)]"
                 >
                   {p.name}
                 </button>
                 <button
                   onClick={(e) => { e.stopPropagation(); setPendingDelete(p); setOpen(false); }}
                   title={s.deleteProjectTitle(p.name)}
-                  className="px-2.5 py-2 text-zinc-600 opacity-0 group-hover:opacity-100 hover:text-red-400 transition-all"
+                  className="px-2.5 py-2 text-[var(--muted-foreground)] opacity-0 transition-all group-hover:opacity-100 hover:text-red-400"
                 >
                   <TrashIcon />
                 </button>
               </div>
             ))}
-            {others.length > 0 && <div className="border-t border-white/8" />}
+            {others.length > 0 && <div className="border-t border-[var(--border)]" />}
             <button
               onClick={() => { requestCreateDialog(); setOpen(false); }}
-              className="w-full px-3 py-2 text-left text-sm text-zinc-400 hover:bg-white/5 transition-colors"
+              className="w-full px-3 py-2 text-left text-sm text-[var(--muted-foreground)] transition-colors hover:bg-[var(--muted)]"
             >
               {s.newProjectMenuItem}
             </button>
@@ -404,24 +404,24 @@ export function ProjectSwitcher() {
       </div>
 
       {pendingDelete && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="bg-zinc-900 border border-white/10 rounded-xl p-6 w-96 flex flex-col gap-4 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--background)]/45 backdrop-blur-sm">
+          <div className="flex w-96 flex-col gap-4 rounded-[20px] border border-[var(--border)] bg-[var(--card)] p-6 text-[var(--foreground)] shadow-[0_30px_100px_rgba(15,23,42,0.18)]">
             <h2 className="font-semibold">{s.deleteProjectTitle(pendingDelete.name)}</h2>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-[var(--muted-foreground)]">
               {s.deleteProjectDesc}
             </p>
             <div className="flex gap-2 justify-end">
               <button
                 onClick={() => setPendingDelete(null)}
                 disabled={deleting}
-                className="px-4 py-2 text-sm rounded-lg hover:bg-white/8 text-zinc-300 disabled:opacity-40"
+                className="rounded-full px-4 py-2 text-sm text-[var(--muted-foreground)] transition-colors hover:bg-[var(--muted)] hover:text-[var(--foreground)] disabled:opacity-40"
               >
                 {s.cancel}
               </button>
               <button
                 onClick={handleConfirmDelete}
                 disabled={deleting}
-                className="bg-red-600 hover:bg-red-500 disabled:opacity-40 rounded-lg px-4 py-2 text-sm font-medium"
+                className="rounded-full bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-500 disabled:opacity-40"
               >
                 {deleting ? s.deletingButton : s.deleteButton}
               </button>

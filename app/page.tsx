@@ -22,19 +22,26 @@ import type { Locale } from "@/lib/strings";
 function LangToggle() {
   const locale = useLocale();
   const setLocale = useSetLocale();
+  const options: Array<{ locale: Locale; label: string }> = [
+    { locale: "zh-TW", label: "繁" },
+    { locale: "zh", label: "中" },
+    { locale: "en", label: "EN" },
+    { locale: "ja", label: "日" },
+    { locale: "ko", label: "한" },
+  ];
   return (
     <div className="flex items-center gap-1 border-t border-white/8 pt-2 mt-auto">
-      {(["en", "zh"] as Locale[]).map((l) => (
+      {options.map((item) => (
         <button
-          key={l}
-          onClick={() => setLocale(l)}
+          key={item.locale}
+          onClick={() => setLocale(item.locale)}
           className={`flex-1 rounded-md py-1 text-xs transition-colors ${
-            locale === l
+            locale === item.locale
               ? "bg-white/15 text-foreground font-semibold"
               : "text-muted-foreground hover:bg-white/8"
           }`}
         >
-          {l === "en" ? "EN" : "中文"}
+          {item.label}
         </button>
       ))}
     </div>

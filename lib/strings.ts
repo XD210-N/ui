@@ -1,4 +1,4 @@
-export type Locale = "en" | "zh";
+export type Locale = "zh-TW" | "zh" | "en" | "ja" | "ko";
 
 export interface UIStrings {
   // Welcome
@@ -8,6 +8,7 @@ export interface UIStrings {
   // Composer
   composerPlaceholder: string;
   composerAriaLabel: string;
+  uploadAttachmentLabel: string;
   sendMessageAriaLabel: string;
   stopGeneratingAriaLabel: string;
 
@@ -98,6 +99,25 @@ export interface UIStrings {
   createFailed: string;
   deleteFailed: string;
 
+  // Redesign settings / manual
+  settingsLabel: string;
+  languageSettings: string;
+  toolManual: string;
+  closeManual: string;
+  manualTitle: string;
+  manualEscHint: string;
+  manualVideoPendingTitle: string;
+  manualVideoPendingDesc: string;
+  manualSectionOneTitle: string;
+  manualSectionOneBody: string;
+  manualSectionTwoTitle: string;
+  manualSectionTwoBody: string;
+  manualSectionThreeTitle: string;
+  manualSectionThreeBody: string;
+  themeSettings: string;
+  lightTheme: string;
+  darkTheme: string;
+
   // Suggestions
   suggestions: Array<{
     title: string;
@@ -107,11 +127,12 @@ export interface UIStrings {
 }
 
 export const en: UIStrings = {
-  welcomeTitle: "Hello there!",
-  welcomeSubtitle: "What can I build for you today?",
+  welcomeTitle: "Omnistack Turns Ideas Into Products",
+  welcomeSubtitle: "From requirements to mass production, natural language drives full-chain innovation for HMI products",
 
   composerPlaceholder: "Send a message...",
   composerAriaLabel: "Message input",
+  uploadAttachmentLabel: "Upload file / image",
   sendMessageAriaLabel: "Send message",
   stopGeneratingAriaLabel: "Stop generating",
 
@@ -203,6 +224,28 @@ export const en: UIStrings = {
   createFailed: "Failed to create project.",
   deleteFailed: "Failed to delete project.",
 
+  settingsLabel: "Settings",
+  languageSettings: "Language settings",
+  toolManual: "Tool manual",
+  closeManual: "Close manual",
+  manualTitle: "Tool Manual",
+  manualEscHint: "Press ESC to close this manual",
+  manualVideoPendingTitle: "Manual video pending",
+  manualVideoPendingDesc:
+    "After the client provides the video, place it in the public directory and point videoSrc to that path.",
+  manualSectionOneTitle: "1. Tool Positioning",
+  manualSectionOneBody:
+    "Generate interfaces from natural language, images, or structured instructions, then continue refining page layout and style in later steps.",
+  manualSectionTwoTitle: "2. Supported Content",
+  manualSectionTwoBody:
+    "The system supports design drafts, images, web files, and documents, and can identify structure, visual tone, component relationships, and page flow.",
+  manualSectionThreeTitle: "3. Interaction Model",
+  manualSectionThreeBody:
+    "Use the home page to describe requirements, the project panel to manage conversations, and the right canvas to review documents, previews, and run results.",
+  themeSettings: "Theme",
+  lightTheme: "Light",
+  darkTheme: "Dark",
+
   suggestions: [
     {
       title: "Analyze screenshots",
@@ -234,11 +277,12 @@ export const en: UIStrings = {
 };
 
 export const zh: UIStrings = {
-  welcomeTitle: "你好！",
-  welcomeSubtitle: "今天想让我帮您构建什么？",
+  welcomeTitle: "Omnistack 让创意直达产品",
+  welcomeSubtitle: "从需求到量产，以自然语言驱动人机交互产品的全链路创新",
 
   composerPlaceholder: "发送消息...",
   composerAriaLabel: "消息输入",
+  uploadAttachmentLabel: "上传文件 / 图片",
   sendMessageAriaLabel: "发送消息",
   stopGeneratingAriaLabel: "停止生成",
 
@@ -321,6 +365,28 @@ export const zh: UIStrings = {
   createFailed: "创建项目失败。",
   deleteFailed: "删除项目失败。",
 
+  settingsLabel: "设置",
+  languageSettings: "语言设置",
+  toolManual: "工具说明",
+  closeManual: "关闭说明",
+  manualTitle: "工具说明",
+  manualEscHint: "按 ESC 可退出说明窗口",
+  manualVideoPendingTitle: "说明视频待接入",
+  manualVideoPendingDesc:
+    "甲方提供视频后，将文件放入 public 目录并把 videoSrc 指向对应路径即可直接播放。",
+  manualSectionOneTitle: "一、工具定位",
+  manualSectionOneBody:
+    "通过自然语言、图像或结构指令生成界面，并继续在节点中细化页面布局与样式。",
+  manualSectionTwoTitle: "二、支持内容",
+  manualSectionTwoBody:
+    "当前支持上传设计稿、图片、网页文件与文档内容，系统会模拟识别结构层级、视觉语气、组件关系与页面流转。",
+  manualSectionThreeTitle: "三、交互方式",
+  manualSectionThreeBody:
+    "首页用于描述需求，项目页用于组织节点与关系，右侧画布用于查看需求文档、预览界面与继续运行。",
+  themeSettings: "主题",
+  lightTheme: "浅色",
+  darkTheme: "深色",
+
   suggestions: [
     {
       title: "分析截图",
@@ -350,4 +416,377 @@ export const zh: UIStrings = {
   ],
 };
 
-export const localeStrings: Record<Locale, UIStrings> = { en, zh };
+export const zhTW: UIStrings = {
+  ...zh,
+  welcomeTitle: "Omnistack 讓創意直達產品",
+  welcomeSubtitle: "從需求到量產，以自然語言驅動人機互動產品的全鏈路創新",
+  composerPlaceholder: "傳送訊息...",
+  composerAriaLabel: "訊息輸入",
+  uploadAttachmentLabel: "上傳檔案 / 圖片",
+  sendMessageAriaLabel: "傳送訊息",
+  stopGeneratingAriaLabel: "停止生成",
+  scrollToBottom: "捲動到底部",
+  sendMessage: "傳送訊息",
+  stopGenerating: "停止生成",
+  copy: "複製",
+  refresh: "重新整理",
+  more: "更多",
+  edit: "編輯",
+  previous: "上一則",
+  next: "下一則",
+  update: "更新",
+  exportMarkdown: "匯出為 Markdown",
+  thinkingPhrases: ["思考中", "分析中", "規劃中", "推理中", "生成中", "處理中"],
+  toolCalls: (count) => `呼叫了 ${count} 個工具`,
+  usedTool: "呼叫工具",
+  cancelledTool: "已取消工具",
+  reasoning: "推理",
+  newThread: "新對話",
+  loadMore: "載入更多",
+  previewCanvas: "預覽畫布",
+  live: "即時",
+  welcomeTab: "歡迎",
+  prdTab: "需求文件",
+  uiTab: "介面",
+  canvasEmpty: "畫布為空",
+  canvasEmptyDesc: "智慧代理生成的內容將顯示於此。",
+  prdNotGenerated: "需求文件尚未生成。",
+  slintNotGenerated: "Slint UI 尚未生成。",
+  btnBuild: "建置",
+  btnRunOnHardware: "在硬體上執行",
+  btnDeploying: "部署中…",
+  btnRunOnHardwareNoDevice: "無已連接裝置",
+  welcomeGreeting: "歡迎使用 OmniStack UI —— 面向嵌入式 Slint UI 應用的 AI 生成平台。",
+  supportedHardwareTitle: "支援的硬體",
+  connectedHardwareTitle: "已連接硬體",
+  noConnectedHardware: "暫無已連接硬體",
+  usageTitle: "快速上手",
+  usageSteps: [
+    "從側邊欄選擇專案，或建立一個新專案。",
+    "如有硬體裝置，請連接您的硬體。",
+    "在對話框中描述您的 UI，也可上傳截圖進行視覺生成，建議為每張截圖附上文字說明。",
+    "在上方標籤頁查看生成的需求文件和介面預覽。",
+  ],
+  loading: "載入中…",
+  projectsLabel: "專案",
+  newProjectMenuItem: "+ 新增專案…",
+  newProject: "新增專案",
+  createFirstProject: "建立第一個專案",
+  projectDescription: "專案包含您的所有對話和生成的檔案。",
+  projectNamePlaceholder: "例如：智慧恆溫器介面",
+  createButton: "建立",
+  creatingButton: "建立中…",
+  deleteButton: "刪除",
+  deletingButton: "刪除中…",
+  deleteProjectTitle: (name) => `刪除「${name}」？`,
+  deleteProjectDesc: "所有對話和生成的檔案將被永久刪除，此操作無法復原。",
+  validationEmpty: "專案名稱不能為空。",
+  validationReserved: "'.' 和 '..' 是保留名稱。",
+  validationInvalidChars:
+    "專案名稱包含資料夾名稱中不允許的字元（例如 '/' 或控制字元）。",
+  validationTooLong: "專案名稱過長（最多 255 位元組）。",
+  createFailed: "建立專案失敗。",
+  deleteFailed: "刪除專案失敗。",
+  settingsLabel: "設定",
+  languageSettings: "語言設定",
+  toolManual: "工具說明",
+  closeManual: "關閉說明",
+  manualTitle: "工具說明",
+  manualEscHint: "按 ESC 可退出說明視窗",
+  manualVideoPendingTitle: "說明影片待接入",
+  manualVideoPendingDesc:
+    "甲方提供影片後，將檔案放入 public 目錄並把 videoSrc 指向對應路徑即可直接播放。",
+  manualSectionOneTitle: "一、工具定位",
+  manualSectionOneBody:
+    "透過自然語言、圖像或結構指令生成介面，並繼續在節點中細化頁面佈局與樣式。",
+  manualSectionTwoTitle: "二、支援內容",
+  manualSectionTwoBody:
+    "目前支援上傳設計稿、圖片、網頁檔案與文件內容，系統會模擬識別結構層級、視覺語氣、元件關係與頁面流轉。",
+  manualSectionThreeTitle: "三、互動方式",
+  manualSectionThreeBody:
+    "首頁用於描述需求，專案頁用於組織節點與關係，右側畫布用於查看需求文件、預覽介面與繼續執行。",
+  themeSettings: "主題",
+  lightTheme: "淺色",
+  darkTheme: "深色",
+  suggestions: [
+    {
+      title: "分析截圖",
+      label: "需求報告",
+      prompt: "點擊 + 按鈕上傳一張或多張 UI 截圖，然後傳送以生成描述各頁面及其關係的需求文件報告。",
+    },
+    {
+      title: "Hello World UI",
+      label: "快速開始",
+      prompt: "生成一個帶按鈕的 Hello World Slint UI。",
+    },
+    {
+      title: "感測器儀表板",
+      label: "完整執行",
+      prompt: "建構一個包含狀態卡片和感測器資料圖表的儀表板。",
+    },
+    {
+      title: "設定介面",
+      label: "僅 UI",
+      prompt: "建立一個帶有開關、滑桿和儲存按鈕的設定介面。",
+    },
+    {
+      title: "登入表單",
+      label: "僅 UI",
+      prompt: "設計一個包含使用者名稱、密碼和提交按鈕的登入表單。",
+    },
+  ],
+};
+
+export const ja: UIStrings = {
+  ...en,
+  welcomeTitle: "Omnistack がアイデアを製品へ直結",
+  welcomeSubtitle: "要件から量産まで、自然言語でHMI製品の全工程を革新します",
+  composerPlaceholder: "メッセージを入力...",
+  composerAriaLabel: "メッセージ入力",
+  uploadAttachmentLabel: "ファイル / 画像をアップロード",
+  sendMessageAriaLabel: "メッセージを送信",
+  stopGeneratingAriaLabel: "生成を停止",
+  scrollToBottom: "最下部までスクロール",
+  sendMessage: "送信",
+  stopGenerating: "生成を停止",
+  copy: "コピー",
+  refresh: "更新",
+  more: "その他",
+  edit: "編集",
+  previous: "前へ",
+  next: "次へ",
+  cancel: "キャンセル",
+  update: "更新",
+  exportMarkdown: "Markdown として書き出し",
+  thinkingPhrases: ["思考中", "分析中", "計画中", "推論中", "生成中", "処理中"],
+  reasoning: "推論",
+  toolCalls: (count) => `${count} 件のツール呼び出し`,
+  usedTool: "ツールを使用",
+  cancelledTool: "ツールをキャンセルしました",
+  newThread: "新しい会話",
+  loadMore: "さらに読み込む",
+  previewCanvas: "プレビューキャンバス",
+  live: "ライブ",
+  welcomeTab: "ようこそ",
+  prdTab: "要件文書",
+  uiTab: "UI",
+  canvasEmpty: "キャンバスは空です",
+  canvasEmptyDesc: "エージェントが生成した成果物がここに表示されます。",
+  prdNotGenerated: "要件文書はまだ生成されていません。",
+  slintNotGenerated: "Slint UI はまだ生成されていません。",
+  btnPreview: "プレビュー",
+  btnBuild: "ビルド",
+  btnRunOnHardware: "ハードウェアで実行",
+  btnDeploying: "デプロイ中…",
+  btnRunOnHardwareNoDevice: "接続されたデバイスがありません",
+  welcomeGreeting: "OmniStack UI へようこそ。組み込み Slint UI アプリを生成する AI プラットフォームです。",
+  supportedHardwareTitle: "対応ハードウェア",
+  connectedHardwareTitle: "接続済みハードウェア",
+  noConnectedHardware: "接続済みハードウェアはありません",
+  usageTitle: "はじめに",
+  usageSteps: [
+    "サイドバーからプロジェクトを選択するか、新規作成します。",
+    "必要に応じてハードウェアデバイスを接続します。",
+    "チャットで UI を説明し、必要ならスクリーンショットを添付します。",
+    "上部のタブで生成された要件文書と UI プレビューを確認します。",
+  ],
+  loading: "読み込み中…",
+  projectsLabel: "プロジェクト",
+  newProjectMenuItem: "+ 新規プロジェクト…",
+  newProject: "新規プロジェクト",
+  createFirstProject: "最初のプロジェクトを作成",
+  projectDescription: "プロジェクトには会話と生成ファイルが保存されます。",
+  projectNamePlaceholder: "例：スマートサーモスタット UI",
+  createButton: "作成",
+  creatingButton: "作成中…",
+  deleteButton: "削除",
+  deletingButton: "削除中…",
+  deleteProjectTitle: (name) => `「${name}」を削除しますか？`,
+  deleteProjectDesc: "すべての会話と生成ファイルが完全に削除されます。この操作は元に戻せません。",
+  validationEmpty: "プロジェクト名を入力してください。",
+  validationReserved: "'.' と '..' は予約名です。",
+  validationInvalidChars:
+    "プロジェクト名にフォルダー名として使用できない文字が含まれています。",
+  validationTooLong: "プロジェクト名が長すぎます（最大 255 バイト）。",
+  createFailed: "プロジェクトの作成に失敗しました。",
+  deleteFailed: "プロジェクトの削除に失敗しました。",
+  settingsLabel: "設定",
+  languageSettings: "言語設定",
+  toolManual: "ツール説明",
+  closeManual: "説明を閉じる",
+  manualTitle: "ツール説明",
+  manualEscHint: "ESC キーで説明ウィンドウを閉じます",
+  manualVideoPendingTitle: "説明動画は未接続です",
+  manualVideoPendingDesc:
+    "動画ファイルを public ディレクトリに配置し、videoSrc をそのパスに向けると再生できます。",
+  manualSectionOneTitle: "1. ツールの位置づけ",
+  manualSectionOneBody:
+    "自然言語、画像、構造化指示から UI を生成し、後続ステップでレイアウトとスタイルを調整します。",
+  manualSectionTwoTitle: "2. 対応コンテンツ",
+  manualSectionTwoBody:
+    "デザイン案、画像、Web ファイル、文書を読み込み、構造、視覚トーン、コンポーネント関係、画面遷移を認識します。",
+  manualSectionThreeTitle: "3. 操作方法",
+  manualSectionThreeBody:
+    "ホームで要件を入力し、プロジェクトパネルで会話を管理し、右側キャンバスで文書、プレビュー、実行結果を確認します。",
+  themeSettings: "テーマ",
+  lightTheme: "ライト",
+  darkTheme: "ダーク",
+  suggestions: [
+    {
+      title: "スクリーンショット解析",
+      label: "要件レポート",
+      prompt: "+ ボタンで UI スクリーンショットを添付し、画面と関係を説明する要件文書を生成してください。",
+    },
+    {
+      title: "Hello World UI",
+      label: "クイック開始",
+      prompt: "ボタン付きの Hello World Slint UI を生成してください。",
+    },
+    {
+      title: "センサーダッシュボード",
+      label: "一括生成",
+      prompt: "状態カードとセンサーデータチャートを含むダッシュボードを構築してください。",
+    },
+    {
+      title: "設定画面",
+      label: "UI のみ",
+      prompt: "トグル、スライダー、保存ボタンを含む設定画面を作成してください。",
+    },
+    {
+      title: "ログインフォーム",
+      label: "UI のみ",
+      prompt: "ユーザー名、パスワード、送信ボタンを含むログインフォームを設計してください。",
+    },
+  ],
+};
+
+export const ko: UIStrings = {
+  ...en,
+  welcomeTitle: "Omnistack, 아이디어를 제품으로 바로 연결",
+  welcomeSubtitle: "요구사항부터 양산까지, 자연어로 HMI 제품의 전 과정을 혁신합니다",
+  composerPlaceholder: "메시지 입력...",
+  composerAriaLabel: "메시지 입력",
+  uploadAttachmentLabel: "파일 / 이미지 업로드",
+  sendMessageAriaLabel: "메시지 보내기",
+  stopGeneratingAriaLabel: "생성 중지",
+  scrollToBottom: "맨 아래로 스크롤",
+  sendMessage: "보내기",
+  stopGenerating: "생성 중지",
+  copy: "복사",
+  refresh: "새로고침",
+  more: "더보기",
+  edit: "편집",
+  previous: "이전",
+  next: "다음",
+  cancel: "취소",
+  update: "업데이트",
+  exportMarkdown: "Markdown으로 내보내기",
+  thinkingPhrases: ["생각 중", "분석 중", "계획 중", "추론 중", "생성 중", "처리 중"],
+  reasoning: "추론",
+  toolCalls: (count) => `도구 ${count}개 호출`,
+  usedTool: "도구 사용",
+  cancelledTool: "도구 호출 취소됨",
+  newThread: "새 대화",
+  loadMore: "더 불러오기",
+  previewCanvas: "미리보기 캔버스",
+  live: "실시간",
+  welcomeTab: "환영",
+  prdTab: "요구 문서",
+  uiTab: "UI",
+  canvasEmpty: "캔버스가 비어 있습니다",
+  canvasEmptyDesc: "에이전트가 생성한 결과물이 여기에 표시됩니다.",
+  prdNotGenerated: "요구 문서가 아직 생성되지 않았습니다.",
+  slintNotGenerated: "Slint UI가 아직 생성되지 않았습니다.",
+  btnPreview: "미리보기",
+  btnBuild: "빌드",
+  btnRunOnHardware: "하드웨어에서 실행",
+  btnDeploying: "배포 중…",
+  btnRunOnHardwareNoDevice: "연결된 장치가 없습니다",
+  welcomeGreeting: "OmniStack UI에 오신 것을 환영합니다. 임베디드 Slint UI 앱을 생성하는 AI 플랫폼입니다.",
+  supportedHardwareTitle: "지원 하드웨어",
+  connectedHardwareTitle: "연결된 하드웨어",
+  noConnectedHardware: "연결된 하드웨어 없음",
+  usageTitle: "시작하기",
+  usageSteps: [
+    "사이드바에서 프로젝트를 선택하거나 새 프로젝트를 만듭니다.",
+    "필요한 경우 하드웨어 장치를 연결합니다.",
+    "채팅에서 UI를 설명하고 필요하면 스크린샷을 첨부합니다.",
+    "상단 탭에서 생성된 요구 문서와 UI 미리보기를 확인합니다.",
+  ],
+  loading: "불러오는 중…",
+  projectsLabel: "프로젝트",
+  newProjectMenuItem: "+ 새 프로젝트…",
+  newProject: "새 프로젝트",
+  createFirstProject: "첫 프로젝트 만들기",
+  projectDescription: "프로젝트에는 모든 대화와 생성 파일이 저장됩니다.",
+  projectNamePlaceholder: "예: 스마트 온도조절기 UI",
+  createButton: "만들기",
+  creatingButton: "만드는 중…",
+  deleteButton: "삭제",
+  deletingButton: "삭제 중…",
+  deleteProjectTitle: (name) => `"${name}"을 삭제할까요?`,
+  deleteProjectDesc: "모든 대화와 생성 파일이 영구 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
+  validationEmpty: "프로젝트 이름을 입력하세요.",
+  validationReserved: "'.' 및 '..'는 예약된 이름입니다.",
+  validationInvalidChars:
+    "프로젝트 이름에 폴더 이름으로 사용할 수 없는 문자가 포함되어 있습니다.",
+  validationTooLong: "프로젝트 이름이 너무 깁니다(최대 255바이트).",
+  createFailed: "프로젝트 생성에 실패했습니다.",
+  deleteFailed: "프로젝트 삭제에 실패했습니다.",
+  settingsLabel: "설정",
+  languageSettings: "언어 설정",
+  toolManual: "도구 설명",
+  closeManual: "설명 닫기",
+  manualTitle: "도구 설명",
+  manualEscHint: "ESC 키로 설명 창을 닫을 수 있습니다",
+  manualVideoPendingTitle: "설명 영상 대기 중",
+  manualVideoPendingDesc:
+    "영상 파일을 public 디렉터리에 넣고 videoSrc를 해당 경로로 지정하면 바로 재생할 수 있습니다.",
+  manualSectionOneTitle: "1. 도구 목적",
+  manualSectionOneBody:
+    "자연어, 이미지, 구조화 지시로 UI를 생성하고 이후 단계에서 레이아웃과 스타일을 계속 다듬습니다.",
+  manualSectionTwoTitle: "2. 지원 콘텐츠",
+  manualSectionTwoBody:
+    "디자인 시안, 이미지, 웹 파일, 문서를 읽고 구조, 시각 톤, 컴포넌트 관계, 화면 흐름을 인식합니다.",
+  manualSectionThreeTitle: "3. 상호작용 방식",
+  manualSectionThreeBody:
+    "홈에서 요구사항을 입력하고, 프로젝트 패널에서 대화를 관리하며, 오른쪽 캔버스에서 문서와 미리보기 및 실행 결과를 확인합니다.",
+  themeSettings: "테마",
+  lightTheme: "라이트",
+  darkTheme: "다크",
+  suggestions: [
+    {
+      title: "스크린샷 분석",
+      label: "요구 보고서",
+      prompt: "+ 버튼으로 UI 스크린샷을 첨부한 뒤, 화면과 관계를 설명하는 요구 문서를 생성하세요.",
+    },
+    {
+      title: "Hello World UI",
+      label: "빠른 시작",
+      prompt: "버튼이 있는 Hello World Slint UI를 생성하세요.",
+    },
+    {
+      title: "센서 대시보드",
+      label: "전체 실행",
+      prompt: "상태 카드와 센서 데이터 차트가 포함된 대시보드를 구성하세요.",
+    },
+    {
+      title: "설정 화면",
+      label: "UI 전용",
+      prompt: "토글, 슬라이더, 저장 버튼이 있는 설정 화면을 만드세요.",
+    },
+    {
+      title: "로그인 폼",
+      label: "UI 전용",
+      prompt: "사용자 이름, 비밀번호, 제출 버튼이 포함된 로그인 폼을 설계하세요.",
+    },
+  ],
+};
+
+export const localeStrings: Record<Locale, UIStrings> = {
+  "zh-TW": zhTW,
+  zh,
+  en,
+  ja,
+  ko,
+};

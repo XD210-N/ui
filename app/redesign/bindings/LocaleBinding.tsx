@@ -15,12 +15,12 @@ export function RedesignLanguageToggle() {
   ];
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex h-8 items-center gap-1">
       {options.map((item) => (
         <button
           key={item.locale}
           onClick={() => setLocale(item.locale)}
-          className={`flex size-12 shrink-0 items-center justify-center rounded-full text-sm font-black transition-colors ${
+          className={`flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-black transition-colors ${
             locale === item.locale
               ? "bg-[#fff1ea] text-[#ff5a13]"
               : "bg-[#f4f5f6] text-[#202020] hover:bg-[#eceeef]"

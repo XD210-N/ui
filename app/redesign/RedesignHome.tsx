@@ -3,6 +3,7 @@
 import { RedesignAppShell } from "./ui/AppShell";
 import {
   RedesignArtifactCanvas,
+  RedesignHardwarePanel,
   RedesignLanguageToggle,
   RedesignProjectSwitcher,
   RedesignThread,
@@ -17,6 +18,7 @@ export function RedesignHome() {
       languageSlot={<RedesignLanguageToggle />}
       threadSlot={<RedesignThread />}
       artifactSlot={<RedesignArtifactCanvas />}
+      hardwareSlot={<RedesignHardwarePanel />}
     />
   );
 }

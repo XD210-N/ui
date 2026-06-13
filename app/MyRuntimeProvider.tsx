@@ -42,7 +42,7 @@ import { createAssistantStream } from "assistant-stream";
 import { clearCanvas, updateCanvas } from "./canvasStore";
 import { getSelectedBoard } from "./boardStore";
 
-const SAAS_URL = process.env.NEXT_PUBLIC_SAAS_URL ?? "";
+const SAAS_URL = process.env.NEXT_PUBLIC_SAAS_URL ?? "http://localhost:8000";
 const RELATIONSHIP_FILE_EXTENSIONS = new Set([
   ".md",
   ".markdown",
